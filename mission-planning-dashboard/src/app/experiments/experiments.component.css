@@ -1,0 +1,10 @@
+.experiments {
+    border: 0.5vw solid;
+    color: lightgreen;
+    padding: 1vw;
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+}

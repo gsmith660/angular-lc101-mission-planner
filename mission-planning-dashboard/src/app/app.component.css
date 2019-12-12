@@ -1,4 +1,12 @@
+.page {
+    width: 90%;
+    margin: auto;
+    padding: 2vw;
+    background-color: midnightblue;
+}
+
 .box {
     display: flex;
+    justify-content: space-between;
     padding: 10px;
 }

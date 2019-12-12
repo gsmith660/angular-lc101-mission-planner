@@ -1,0 +1,10 @@
+.equipment {
+    border: 0.5vw solid;
+    color: salmon;
+    padding: 1vw;
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+}
