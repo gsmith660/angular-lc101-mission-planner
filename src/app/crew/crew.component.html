@@ -14,6 +14,10 @@
   </li>
 </ul>
 
-<input #name type="text"/>
+<input #name (keyup)="duplicateName = false;" type="text"/>
 <label>First mission<input #firstMission type="checkbox"/></label>
 <button (click)="add(name.value, firstMission.checked)">Add</button>
+
+<div *ngIf="duplicateName">
+  <p>This crew member is already on the list.</p>
+</div>

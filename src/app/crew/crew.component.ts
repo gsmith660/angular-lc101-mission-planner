@@ -13,6 +13,7 @@ export class CrewComponent implements OnInit {
     {name: "Ellen Ochoa", firstMission: true}
   ];
   memberBeingEdited: object = null;
+  duplicateName = false;
 
   constructor() { }
 
@@ -20,6 +21,12 @@ export class CrewComponent implements OnInit {
   }
 
   add(memberName: string, isFirst: boolean) {
+    for (let member of this.crew) {
+      if (memberName === member.name) {
+        this.duplicateName = true;
+        return;
+      }
+    }
     this.crew.push({name: memberName, firstMission: isFirst});
   }
 
