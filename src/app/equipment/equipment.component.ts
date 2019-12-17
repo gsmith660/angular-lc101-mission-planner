@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
+interface equipment {
+  name: string,
+  mass: number
+}
+
 @Component({
   selector: 'app-equipment',
   templateUrl: './equipment.component.html',
   styleUrls: ['./equipment.component.css']
 })
 export class EquipmentComponent implements OnInit {
-   equipmentItems: object[] = [
+   equipmentItems: equipment[] = [
        {name: 'Duct Tape', mass: 0.5},
        {name: 'Space Camera', mass: 20},
        {name: 'Food', mass: 150},
@@ -17,7 +22,7 @@ export class EquipmentComponent implements OnInit {
        {name: 'Satellite', mass: 1200},
        {name: 'R2 Unit', mass: 32}
    ];
-   cargoHold: object[] = [];
+   cargoHold: equipment[] = [];
    cargoMass: number = 0;
    maximumAllowedMass: number = 2000;
    maxItems: number = 10;
@@ -27,5 +32,15 @@ export class EquipmentComponent implements OnInit {
    ngOnInit() { }
 
    // Code your addItem function here:
-   
+   addItem(item: equipment) {
+    this.cargoHold.push(item);
+    this.cargoMass += item.mass;
+    return this.maximumAllowedMass - this.cargoMass < 200;
+   }
+
+   emptyHold() {
+     this.cargoHold = [];
+     this.cargoMass = 0;
+     return false;
+   }
 }
